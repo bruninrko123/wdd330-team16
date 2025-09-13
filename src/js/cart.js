@@ -1,4 +1,6 @@
 import { getLocalStorage } from './utils.mjs';
+import { calculateCartTotal } from './utils.mjs';
+
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart');
@@ -26,3 +28,14 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+function renderCartFooter() {
+  const total = calculateCartTotal();
+  const cartFooter = document.querySelector('.cart-footer');
+  const cartAmount = cartFooter.querySelector('.cart-amount');
+
+  cartAmount.textContent = total.toFixed(2);
+  cartFooter.classList.remove(hide);
+}
+
+renderCartFooter();
