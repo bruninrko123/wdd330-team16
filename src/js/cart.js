@@ -1,9 +1,18 @@
+import ProductList from './ProductList.mjs';
 import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart');
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector('.product-list').innerHTML = htmlItems.join('');
+
+  if (cartItems.length === 0) {
+    document.querySelector('.cart-count').textContent = '';
+    document.querySelector('.cart-total').textContent = '$0.00';
+    document.querySelector('.product-list').innerHTML = '<p>Your cart is empty</p>';
+  }
+  
+  ProductList.innerHTML = htmlItems.join('');
 }
 
 function cartItemTemplate(item) {
