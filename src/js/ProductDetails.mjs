@@ -23,19 +23,9 @@ export default class ProductDetails {
   }
     
 
-  addProductToCart(product) {
-    var cartItems = getLocalStorage('so-cart') || [];
-        
-    if (!Array.isArray(cartItems)) {
-      if (cartItems) {
-        cartItems = [cartItems];
-      }
-      else {
-        cartItems = [];
-      }
-    }
-    cartItems.push(product);
-          
+  addProductToCart() {
+    const cartItems = getLocalStorage('so-cart') || [];  
+    cartItems.push(this.product); 
     setLocalStorage('so-cart', cartItems);
   }
 
