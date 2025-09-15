@@ -23,19 +23,9 @@ export default class ProductDetails {
   }
     
 
-  addProductToCart(product) {
-    var cartItems = getLocalStorage('so-cart') || [];
-        
-    if (!Array.isArray(cartItems)) {
-      if (cartItems) {
-        cartItems = [cartItems];
-      }
-      else {
-        cartItems = [];
-      }
-    }
-    cartItems.push(product);
-          
+  addProductToCart() {
+    const cartItems = getLocalStorage('so-cart') || [];  
+    cartItems.push(this.product); 
     setLocalStorage('so-cart', cartItems);
   }
 
@@ -54,8 +44,10 @@ function productDetailsTemplate(product) {
   const productImage = document.getElementById('productImage2');
   productImage.alt = product.NameWithoutBrand;
   productImage.src = product.Image;
- 
-  document.querySelector('.product-card__price').textContent = `$${product.FinalPrice}`;
+
+  document.querySelector('.discount').textContent = `${Math.round((1 - (product.FinalPrice / product.SuggestedRetailPrice)) * 100)}% off`;
+  document.querySelector('.product-card__price').innerHTML =
+    `<span style ='text-decoration: line-through;'>$${product.SuggestedRetailPrice}</span> Now only $${product.FinalPrice} `;
   document.querySelector('.product__color').textContent = product.Colors.ColorName;
   document.querySelector('.product__description').innerHTML = product.DescriptionHtmlSimple;
 
