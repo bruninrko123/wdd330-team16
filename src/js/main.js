@@ -1,12 +1,12 @@
-import ProductData from './public/json/Tents.json'
-import ProductList from './ProductList.mjs'
-
-const dataSource = new ProductData("tents");
-
-const element = document.querySelector('.product-list');
-
-const productList = new ProductList("tents", dataSource, element);
+import ProductData from './ProductData.mjs'
+import ProductList from './ProductList.mjs';
 
 
-productList.Init();
+const dataSource = new ProductData('tents');
+
+const listElement = document.querySelector('.product-list');
+
+const productlist = new ProductList('Tents', dataSource, listElement)
+
+productlist.init();
 
