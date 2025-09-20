@@ -62,10 +62,11 @@ p {
 
 .hero {
   position: relative;
+  
 }
 
 .hero .logo {
-  position: absolute;
+  position: relative;
   left: calc(50% - 60px);
   bottom: -15px;
   background-color: white;
@@ -93,6 +94,21 @@ p {
 .logo--square > div {
   margin-top: -1.7em;
 }
+
+.product-categories{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.product-categories > a {
+  width: 90px;
+  
+
+}
+
+
 
 /* utility classes */
 .highlight {

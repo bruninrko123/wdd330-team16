@@ -45,7 +45,7 @@ function productDetailsTemplate(product) {
 
   const productImage = document.getElementById('productImage2');
   productImage.alt = product.NameWithoutBrand;
-  productImage.src = product.Image;
+  productImage.src = product.Images.PrimaryLarge;
 
   document.querySelector('.discount').textContent = `${Math.round((1 - (product.FinalPrice / product.SuggestedRetailPrice)) * 100)}% off`;
   document.querySelector('.product-card__price').innerHTML =
