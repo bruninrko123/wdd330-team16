@@ -24,7 +24,7 @@
 
 This project is deploying using Netlify
 
--SleepOutside Production site - https://68c9987d347a012bc79548e6--sleepoutside-team16.netlify.app/
+-SleepOutside Production site - https://sleepoutside-team16.netlify.app/
 
 ---
 
