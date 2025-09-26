@@ -1,0 +1,10 @@
+input, label{
+    display: block;
+}
+
+fieldset{
+    padding: 20px;
+    margin: 15px;
+    border-radius: 5px;
+   
+}
