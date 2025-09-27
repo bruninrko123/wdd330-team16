@@ -4,10 +4,17 @@ import { loadHeaderFooter } from './utils.mjs';
 loadHeaderFooter();
 
 
-const result = new CheckoutProcess('so-cart');
+const order = new CheckoutProcess('so-cart');
 
-result.init();
+order.init();
 
+document.querySelector('#zip').addEventListener('blur', order.calculateTotal.bind(order));
+
+document.querySelector('form button').addEventListener('click', (e) => {
+    e.preventDefault();
+
+    order.checkout();
+})
 
 
 // build test
