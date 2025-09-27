@@ -4,10 +4,10 @@ import { loadHeaderFooter } from './utils.mjs';
 loadHeaderFooter();
 
 
-const result = new CheckoutProcess();
+const result = new CheckoutProcess('so-cart');
 
-result.calcualteSubtotal();
-document.querySelector('')
-result.calculateTotal();
+result.init();
+
+
 
 // build test

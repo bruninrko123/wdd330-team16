@@ -1,13 +1,22 @@
 import { getLocalStorage } from './utils.mjs';
 
 export default class CheckoutProcess {
-    subtotal = 0;
-    total = 0;
-    shipping = 8;
-    numberofitems = 0;
+
+  constructor(key) {
+    this.key = key;
+    this.subtotal = 0;
+    this.total = 0;
+    this.shipping = 8;
+    this.numberofitems = 0;
+  }
+
+  init() {
+    this.calcualteSubtotal()
+    this.calculateTotal();
+  }
   calcualteSubtotal() {
     
-    const cartItems = getLocalStorage("so-cart");
+    const cartItems = getLocalStorage(this.key);
     cartItems.forEach((item) => {
         this.subtotal += item.FinalPrice * item.quantity;
         this.numberofitems++;

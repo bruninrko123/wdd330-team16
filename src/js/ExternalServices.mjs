@@ -4,16 +4,12 @@ function convertToJson(res) {
   if (res.ok) {
     return res.json();
   } else {
-    throw new Error('Bad Response');
+    throw new Error("Bad Response");
   }
 }
 
-
-export default class ProductData {
-  
-  constructor() {
-    
-  }
+export default class ExternalServices {
+  constructor() {}
   async getData(category) {
     const response = await fetch(`${baseURL}products/search/${category}`);
     const data = await convertToJson(response);
