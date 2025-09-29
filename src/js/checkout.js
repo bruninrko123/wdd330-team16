@@ -10,7 +10,7 @@ order.init();
 
 document.querySelector('#zip').addEventListener('blur', order.calculateTotal.bind(order));
 
-document.querySelector('form button').addEventListener('click', (e) => {
+document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
 
     order.checkout();

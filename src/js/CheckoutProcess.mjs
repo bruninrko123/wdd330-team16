@@ -94,8 +94,12 @@ export default class CheckoutProcess {
     try {
       const response = await services.checkout(order);
       console.log('check response: ', response);
+      localStorage.removeItem(this.key);
+
+      window.location.href = 'success.html';
     } catch (err) {
       console.log(err);
+      throw {name: 'Error posting', message: err}
     }
 
   }
