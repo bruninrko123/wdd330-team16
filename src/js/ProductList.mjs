@@ -30,13 +30,37 @@ export default class ProductList{
    
     async init() {
         const listOfProducts = await this.dataSource.getData(this.category);
-
+        
         this.renderList(listOfProducts)
         
     }
 
-    renderList(list) {
+  renderList(list) {
+
+    renderListWithTemplate(productCardTemplate, this.listElement, list);
+    const maxPrice = document.querySelector('#maximum-price');
+    console.log(list);
+    maxPrice.addEventListener('input', () => {
+      // let maxValue = parseFloat(maxPrice.value);
+      
+
+      if (maxPrice.value.trim() === '') {
+        
         renderListWithTemplate(productCardTemplate, this.listElement, list);
+       
+      }
+
+      else {
+        const maxValue = parseFloat(maxPrice.value);
+
+        let filteredProducts = list.filter(product => product.FinalPrice <= maxValue);
+
+        renderListWithTemplate(productCardTemplate, this.listElement, filteredProducts, 'afterbegin', true);
+        console.log(filteredProducts);
+      }
+        
+    });
+
     }
     
 }
